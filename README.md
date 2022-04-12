@@ -8,4 +8,4 @@
     TODO
 
 ## Resources
-    TODO
+- Image source: https://www.star-facts.com/wp-content/uploads/2020/09/Sabik.webp
