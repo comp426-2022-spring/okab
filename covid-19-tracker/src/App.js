@@ -4,7 +4,19 @@ import './App.css';
 function App() {
   return (
     <div className="app">
-      <H1>Let's build a Covid-19 Tracking Program</H1>
+      <h1>COVID-19 TRACKER</h1>
+
+      {/* Header */}
+      {/* Title + select input drop down field */}
+      {/* Infobox */}
+      {/* Infobox */}
+      {/* Infobox */}
+
+      {/* Tables */}
+      {/* Graphs */}
+
+      {/* Map */}
+
     </div>
   );
 }
