@@ -8,4 +8,4 @@
     TODO
 
 ## Resources
-- [Image source, courtesy of Wikisky](http://wikisky.org)
+- Image courtesy of [Wikisky](http://wikisky.org)
