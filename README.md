@@ -1,5 +1,5 @@
 # Okab COVID-19 Dashboard (Name subject to change)
-![alt text](https://www.star-facts.com/wp-content/uploads/2020/09/Sabik.webp)
+![alt text](./okab.png)
 
 ## Overview
     TODO
@@ -8,4 +8,4 @@
     TODO
 
 ## Resources
-- Image source: https://www.star-facts.com/wp-content/uploads/2020/09/Sabik.webp
+- [Image source, courtesy of Wikisky](http://wikisky.org)
