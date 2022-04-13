@@ -81,6 +81,14 @@ const App = () => {
 
 
       {/* User Sign Up and Log In Buttons */}
+      {/* 
+      
+          TODO: Handle error cases
+                1. Incorrect email or password when logging in
+                2. Email already in use when signing up
+                3. Password not at least 6 letters long when signing up
+      
+      */}
       <div className="buttons">
         <section id="user-sign-log-container">
           {/* Sign Up */}
