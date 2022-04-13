@@ -13,7 +13,7 @@ import { auth } from "./firebase";
 const App = () => {
   const [state, setState] = useState([]); 
   document.title = "Okab COVID-19 Dashboard";
-  document.body.style = 'background: rgb(0, 47, 95);';
+  document.body.style = 'background: rgb(35, 35, 35);';
 
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
