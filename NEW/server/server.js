@@ -13,6 +13,10 @@ const server = app.listen(HTTP_PORT, () => {
     console.log('App listening on port %PORT%'.replace('%PORT%',HTTP_PORT))
 });
 
+app.get("/", (req, res) => {
+    res.send("Hello World");
+});
+
 app.get('/app/', (req, res) => {
     // Respond with status 200
         res.statusCode = 200;       
