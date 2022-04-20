@@ -49,7 +49,10 @@ const App = () => {
         registerEmail,
         registerPassword
       );
+      console.log("User registered");
       console.log(user);
+      document.getElementById("signEMAIL").value = "";
+      document.getElementById("signPW").value = "";
     } catch (error) {
       console.log(error.message);
     }
@@ -62,13 +65,17 @@ const App = () => {
         loginEmail,
         loginPassword
       );
+      console.log("User logged in");
       console.log(user);
+      document.getElementById("logEMAIL").value = "";
+      document.getElementById("logPW").value = "";
     } catch (error) {
       console.log(error.message);
     }
   };
 
   const logout = async () => {
+    console.log("User signed out");
     await signOut(auth);
   };
   
@@ -83,13 +90,13 @@ const App = () => {
       {/* User Sign Up and Log In Buttons */}
       {/* 
       
-          TODO: - Handle error cases
+          TODO: - Display error cases
                 1. Incorrect email or password when logging in
                 2. Email already in use when signing up
                 3. Invalid email (not in email format) when signing up
                 4. Password not at least 6 letters long when signing up
+                5. User logging out when not logged in
 
-                - Log info to backend console
       
       */}
       <div className="buttons">
@@ -98,15 +105,17 @@ const App = () => {
           <div>
             <h3> Sign Up </h3>
             <input
-              placeholder="Email..."
+              placeholder="Email"
+              id="signEMAIL"
               onChange={(event) => {
                 setRegisterEmail(event.target.value);
               }}
             />
             <input
-              placeholder="Password..."
+              placeholder="Password"
               type="password"
               name="password"
+              id="signPW"
               onChange={(event) => {
                 setRegisterPassword(event.target.value);
               }}
@@ -121,15 +130,17 @@ const App = () => {
           <div>
             <h3> Login </h3>
             <input
-              placeholder="Email..."
+              placeholder="Email"
+              id="logEMAIL"
               onChange={(event) => {
                 setLoginEmail(event.target.value);
               }}
             />
             <input
-              placeholder="Password..."
+              placeholder="Password"
               type="password"
               name="password"
+              id="logPW"
               onChange={(event) => {
                 setLoginPassword(event.target.value);
               }}
