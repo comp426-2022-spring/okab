@@ -49,12 +49,19 @@ const App = () => {
         registerEmail,
         registerPassword
       );
+      var signEMAIL = document.getElementById("signEMAIL");
+      var signPW = document.getElementById("signPW");
       console.log("User registered");
       console.log(user);
-      document.getElementById("signEMAIL").value = "";
-      document.getElementById("signPW").value = "";
+      signEMAIL.value = "";
+      signPW.value = "";
     } catch (error) {
+      var signEMAIL = document.getElementById("signEMAIL");
+      var signPW = document.getElementById("signPW");
       console.log(error.message);
+      signEMAIL.value = error.message;
+      signEMAIL.classList.add("red");
+      signPW.value = "";
     }
   };
 
@@ -65,12 +72,19 @@ const App = () => {
         loginEmail,
         loginPassword
       );
+      var logEMAIL = document.getElementById("logEMAIL");
+      var logPW = document.getElementById("logPW");
       console.log("User logged in");
       console.log(user);
-      document.getElementById("logEMAIL").value = "";
-      document.getElementById("logPW").value = "";
+      logEMAIL.value = "";
+      logPW.value = "";
     } catch (error) {
+      var logEMAIL = document.getElementById("logEMAIL");
+      var logPW = document.getElementById("logPW");
       console.log(error.message);
+      logEMAIL.value = error.message;
+      logEMAIL.classList.add("red");
+      logPW.value = "";
     }
   };
 
