@@ -42,7 +42,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 args["port"];
-var HTTP_PORT = args.port || 5000;
+var HTTP_PORT = 5000;
 
 if(args.log == 'false') {
     console.log("Not creating a new access.log")
