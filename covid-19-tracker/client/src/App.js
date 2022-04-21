@@ -55,12 +55,13 @@ const App = () => {
       console.log(user);
       signEMAIL.value = "";
       signPW.value = "";
-    } catch (error) {
+    } 
+    
+    catch (error) {
       var signEMAIL = document.getElementById("signEMAIL");
       var signPW = document.getElementById("signPW");
       console.log(error.message);
       signEMAIL.value = error.message;
-      signEMAIL.classList.add("red");
       signPW.value = "";
     }
   };
@@ -78,12 +79,13 @@ const App = () => {
       console.log(user);
       logEMAIL.value = "";
       logPW.value = "";
-    } catch (error) {
+    } 
+    
+    catch (error) {
       var logEMAIL = document.getElementById("logEMAIL");
       var logPW = document.getElementById("logPW");
       console.log(error.message);
       logEMAIL.value = error.message;
-      logEMAIL.classList.add("red");
       logPW.value = "";
     }
   };
