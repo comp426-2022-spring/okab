@@ -32,3 +32,33 @@
   background: rgb(159, 205, 251);
   clear: both;
 }
+
+.topnav {
+  background-color: rgb(240, 235, 235);
+  overflow: hidden;
+}
+
+.app{
+  background-color: lightskyblue;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+.app__stats{
+  display:flex;
+  justify-content: space-between;
+}
+
+.app__left {
+  flex:0.9;
+}
+
+body{
+  background-color: gray ;
+}
+
+@media (max-width: 990px) {
+  .app {
+    flex-direction: column;
+  }
+}
