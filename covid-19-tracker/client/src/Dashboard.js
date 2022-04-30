@@ -3,6 +3,7 @@ import './App.css';
 import InfoBox from './InfoBox';
 import Table from './Table';
 import React, { useEffect , useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Dashboard() {
 
@@ -19,7 +20,7 @@ function Dashboard() {
     });
   }, []);
 
-  document.title = "Okab COVID-19 Dashboard | Dashboard";
+  document.title = "Dashboard | Okab COVID-19 Dashboard";
   document.body.style = 'background: rgb(35, 35, 35);';
 
   useEffect(() => {
@@ -57,11 +58,18 @@ function Dashboard() {
         })
     }
 
+    let navigate = useNavigate();
+
     return (
         <div className="app__left">
 
           <div className="app__header">
-            <h1 className='app__header'>Okab COVID-19 Dashboard</h1>
+            <h1 className='app__header'>Okab COVID-19 Dashboard - Home</h1>
+          </div>
+
+          <br/>
+
+          <div className="app__header">
             <FormControl className='="app__dropdown'>
               <Select variant="outlined" onChange={onCountryChange} value={country}>
 
@@ -73,7 +81,10 @@ function Dashboard() {
 
               </Select>
             </FormControl>
+            <br/><br/><br/><br/>
           </div>
+
+          <br/>
 
           <div className="app__stats">
             <InfoBox title="Coronavirus Cases" cases={countryInfo.todayCases}   total={countryInfo.cases} />
@@ -87,6 +98,17 @@ function Dashboard() {
               <h3>Worldwide New Cases</h3>
             </CardContent>
           </Card>
+          
+          <br/>
+          <div className="buttons">
+            <br/>
+            <button
+              onClick={() => {navigate('/userinfo');}}
+            > Go to User Info Page
+            </button>
+            <br/>
+            <br/>
+          </div>
 
         </div>
     );

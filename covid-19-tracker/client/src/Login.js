@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import { useNavigate } from 'react-router-dom';
 
 import {
   createUserWithEmailAndPassword,
@@ -11,7 +12,7 @@ import { auth } from "./firebase";
 
 function Login() {
 
-    document.title = "Okab COVID-19 Dashboard | Login";
+    document.title = "Login | Okab COVID-19 Dashboard";
     document.body.style = 'background: rgb(35, 35, 35);';
 
     const [registerEmail, setRegisterEmail] = useState("");
@@ -40,6 +41,7 @@ function Login() {
         signEMAIL.value = "";
         signPW.value = "";
         signError.style.visibility = "hidden";
+        navigate('/dashboard');
         }
         catch (error) {
         console.log(error.message);
@@ -64,6 +66,7 @@ function Login() {
         logEMAIL.value = "";
         logPW.value = "";
         logError.style.visibility = "hidden";
+        navigate('/dashboard');
         }
         catch (error) {
         console.log(error.message);
@@ -73,14 +76,12 @@ function Login() {
         }
     };
 
-    const logout = async () => {
-        console.log("User signed out");
-        await signOut(auth);
-    };
+    let navigate = useNavigate();
 
     return (
         <div>
-            <h1 className='app__header'>Okab COVID-19 Dashboard</h1>
+            <h1 className='app__header'>Okab COVID-19 Dashboard - Login</h1>
+            <br/>
 
             {/* User Sign Up and Log In Buttons */}
             {/* 
@@ -92,12 +93,11 @@ function Login() {
                     4. Password not at least 6 letters long when signing up
                     5. User logging out when not logged in
 
-                TODO: Add ability to change user info and delete account
-
             */}
             <div className="buttons">
             <section id="user-sign-log-container">
                 {/* Sign Up */}
+                <br/>
                 <div>
                 <h3> Sign Up </h3>
                 <label id="signError" class="signError">Error: Invalid Email and/or Password</label>
@@ -109,6 +109,7 @@ function Login() {
                     setRegisterEmail(event.target.value);
                     }}
                 />
+                <br/>
                 <input
                     placeholder="Password"
                     type="password"
@@ -120,6 +121,7 @@ function Login() {
                 />
 
                 {/* Sign Up Button */}
+                <br/>
                 <button
                     onClick={register}
                 > Create User</button>
@@ -138,6 +140,7 @@ function Login() {
                     setLoginEmail(event.target.value);
                     }}
                 />
+                <br/>
                 <input
                     placeholder="Password"
                     type="password"
@@ -149,19 +152,12 @@ function Login() {
                 />
 
                 {/* Log In Button */}
+                <br/>
                 <button
                     onClick={login}
                 > Login</button>
                 </div>
-
-                {/* Sign Out */}
-                <br />
-                <h4> User Signed In As: </h4>
-                {user?.email}
-
-                <button
-                onClick={logout}
-                > Sign Out </button>
+                <br/>
 
             </section>
             </div>
