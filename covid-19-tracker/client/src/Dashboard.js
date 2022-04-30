@@ -84,8 +84,9 @@ function Dashboard() {
             <br/><br/><br/><br/>
           </div>
 
-          <br/>
-
+          <div className="app__header">
+            <br/>
+          </div>
           <div className="app__stats">
             <InfoBox title="Coronavirus Cases" cases={countryInfo.todayCases}   total={countryInfo.cases} />
             <InfoBox title="Recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered} />
@@ -98,6 +99,9 @@ function Dashboard() {
               <h3>Worldwide New Cases</h3>
             </CardContent>
           </Card>
+          <div className="app__header">
+            <br/>
+          </div>
           
           <br/>
           <div className="buttons">

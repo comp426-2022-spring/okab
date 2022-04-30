@@ -34,7 +34,7 @@ function UserInfo() {
 
             <div className="app__header">
                 {/* TODO: Delete user, update email, update pw */}
-
+                
 
             </div>
 
