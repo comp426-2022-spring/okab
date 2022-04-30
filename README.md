@@ -1,8 +1,8 @@
-# Okab COVID-19 Dashboard (Name subject to change)
+# Okab COVID-19 Dashboard
 ![alt text](./okab.png)
 
 ## Overview
-    TODO
+A Covid-19 Dashboard using realtime worldwide data. User login/authentication is handled by Firebase.
 
 ## Documentation
 A further description of our API calls and endpoints can be found in the documentation folder.
