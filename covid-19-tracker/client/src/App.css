@@ -59,3 +59,17 @@
 
   }
 }
+
+.error {
+  color: red;
+}
+
+.signError {
+  color: red;
+  visibility: hidden;
+}
+
+.logError {
+  color: red;
+  visibility: hidden;
+}
