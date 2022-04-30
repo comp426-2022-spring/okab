@@ -34,7 +34,7 @@ First you need to enter the covid-19-tracker subdirectory.
 Once you are in the covid-19-tracker subdirectory, split the terminal (right click terminal and click Split Terminal).\
 In one half, enter the server subdirectory:
 ```
-  cd client
+  cd server
 ```
 Then do:
 ```
