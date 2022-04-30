@@ -187,30 +187,6 @@ const App = () => {
 
       <section id="firebaseui-auth-container"></section>
 
-
-      {/* Title + select input drop down field */}
-      <div className="dropdown">
-        <FormControl className='dropdown'>
-          <Select variant= 'outlined' value= ''>
-          <MenuItem name="USA">USA</MenuItem>
-            {state.map((state) =>
-            (<MenuItem name={state.name}>{state.name}</MenuItem>))}
-            </Select> 
-        </FormControl>
-      </div>
-      
-
-      {/* Infobox */}
-      {/* Infobox */}
-      {/* Infobox */}
-
-
-      {/* Tables */}
-      {/* Graphs */}
-
-
-      {/* Map */}
-
     </div>
   );
 }
