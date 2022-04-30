@@ -40,7 +40,6 @@ Then do:
 ```
   node server.js
 ```
-<br/>
 In the other half, enter the client subdirectory:
 ```
   cd client
