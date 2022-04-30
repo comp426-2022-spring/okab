@@ -1,8 +1,6 @@
-import { FormControl, MenuItem, Select, Card, CardContent } from '@material-ui/core';
+import { FormControl, MenuItem, Select } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
-import InfoBox from './InfoBox';
 import './App.css';
-import Table from "./Table";
 
 import {
   createUserWithEmailAndPassword,
@@ -13,22 +11,9 @@ import {
 import { auth } from "./firebase";
 
 const App = () => {
-  const [countries, setCountries] = useState([]);
-  const [country, setInputCountry] = useState("worldwide");
-  const [countryInfo, setCountryInfo] = useState({});
-  const [tableData, setTableData] = useState([]);
-
-  useEffect(() => {
-    fetch("https://disease.sh/v3/covid-19/all")
-    .then(response => response.json())
-    .then(data => {
-      setCountryInfo(data);
-    })
-  }, [])
-  
-
+  const [state, setState] = useState([]); 
   document.title = "Okab COVID-19 Dashboard";
-  document.body.style = 'background: rgb(0, 0, 0);';
+  document.body.style = 'background: rgb(35, 35, 35);';
 
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
@@ -42,21 +27,19 @@ const App = () => {
   });
 
   useEffect(() => {
-    const getCountriesData = async () => {
-      await fetch('https://disease.sh/v3/covid-19/countries')
-        .then((response) => response.json())
-        .then((data) => {
-          const countries = data.map((country) => (
-            {
-              name: country.country, // full name
-              value: country.countryInfo.iso2 // abbreviation
-            }
-          ));
-          setTableData(data);
-          setCountries(countries)
-        });
+    const getStateData = async() => {
+      await fetch('https://disease.sh/v3/covid-19/states')
+      .then((response) => response.json())
+      .then((data) => {
+        const states = data.map((state) => (
+          {
+            name: state.state,
+          }
+        ));
+        setState(states)
+      });
     };
-    getCountriesData();
+    getStateData();
   }, [])
 
   const register = async () => {
@@ -74,7 +57,7 @@ const App = () => {
       signEMAIL.value = "";
       signPW.value = "";
       signError.style.visibility = "hidden";
-    }
+    } 
     catch (error) {
       console.log(error.message);
       signEMAIL.value = "";
@@ -98,7 +81,7 @@ const App = () => {
       logEMAIL.value = "";
       logPW.value = "";
       logError.style.visibility = "hidden";
-    }
+    } 
     catch (error) {
       console.log(error.message);
       logEMAIL.value = "";
@@ -111,57 +94,13 @@ const App = () => {
     console.log("User signed out");
     await signOut(auth);
   };
-
-  const onCountryChange = async (event) => {
-    const countryCode = event.target.value;
-    const url = countryCode === `worldwide` ? `https://disease.sh/v3/covid-19/all` :
-      `https://disease.sh/v3/covid-19/countries/${countryCode}`;
-
-    await fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        setInputCountry(countryCode);
-        setCountryInfo(data);
-      })
-
-
-
-  }
-
-
+  
   return (
-
     <div className="app">
-      <div className="app__left">
-        <div className="app__header">
-          <h1>Okab COVID-19 Dashboard</h1>
-          <FormControl className="app__dropdown">
-            <Select variant="outlined"
-              onChange={onCountryChange} value={country}>
-              <MenuItem value="worldwide">Worldwide</MenuItem>
-              {countries.map((country) => (
-                <MenuItem value={country.value}>{country.name}</MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </div>
-        <div className="app__stats">
-          <InfoBox title="Coronavirus Cases" cases={countryInfo.todayCases} total={countryInfo.cases} />
-          <InfoBox title="Recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered} />
-          <InfoBox title="Deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths} />
-        </div>
-        <Card className="app__right">
-          <CardContent>
-            <h3>Live Cases by Country</h3>
-            <Table>countries={tableData}</Table>
-            <h3>Worldwide new cases</h3>
-          </CardContent>
-        </Card>
+      {/* Header */}
+      <div className="header">
+        <h1>Okab COVID-19 Dashboard</h1>
       </div>
-
-
-
-
 
 
       {/* User Sign Up and Log In Buttons */}
@@ -183,7 +122,7 @@ const App = () => {
           <div>
             <h3> Sign Up </h3>
             <label id="signError" class="signError">Error: Invalid Email and/or Password</label>
-            <br />
+            <br/>
             <input
               placeholder="Email"
               id="signEMAIL"
@@ -201,17 +140,17 @@ const App = () => {
               }}
             />
 
-            <button
-              onClick={register}
+            <button 
+            onClick={register}
             > Create User</button>
           </div>
 
           {/* Log In */}
           <div>
-            <br />
+            <br/>
             <h3> Login </h3>
             <label id="logError" class="logError">Error: Invalid Email and/or Password</label>
-            <br />
+            <br/>
             <input
               placeholder="Email"
               id="logEMAIL"
@@ -228,18 +167,19 @@ const App = () => {
                 setLoginPassword(event.target.value);
               }}
             />
-            <button
-              href="'/dashboard.html'"
+
+            <button 
+            onClick={login}
             > Login</button>
           </div>
 
           {/* Sign Out */}
-          <br />
+          <br/>
           <h4> User Signed In As: </h4>
           {user?.email}
 
-          <button
-            onClick={logout}
+          <button 
+          onClick={logout}
           > Sign Out </button>
 
         </section>
@@ -247,23 +187,7 @@ const App = () => {
 
       <section id="firebaseui-auth-container"></section>
 
-
-      {/* Title + select input drop down field */}
-
-
-      {/* Infobox */}
-      {/* Infobox */}
-      {/* Infobox */}
-
-
-      {/* Tables */}
-      {/* Graphs */}
-
-
-      {/* Map */}
-
     </div>
-
   );
 }
 

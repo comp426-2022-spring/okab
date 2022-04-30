@@ -5,15 +5,16 @@
     TODO
 
 ## Documentation
-    A further description of our API calls and endpoints can be found in the documentation folder
+A further description of our API calls and endpoints can be found in the documentation folder.
+Install and run instructions and also located in the documentation folder.
 
 ## Resources
 - Image courtesy of [Wikisky](http://wikisky.org)
 
 ## Roles
-    Database Lead - Shawn Khandia 
+    User Database Lead - Shawn Khandia 
     Backend Lead - Laura Wu
-    Backend Lead2 - Rohan Shankar
+    Backend Lead 2 - Rohan Shankar
     Frontend Lead - Haad Khan
     Design Lead - Neha Patel 
 
