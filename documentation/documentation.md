@@ -48,3 +48,40 @@ Then simply do npm start!
 ```
 npm start
 ```
+
+#  API Documentation
+
+## Endpoints
+
+### /app/ (GET)
+
+#### Request cURL
+
+```
+curl http://localhost:5000/app/
+```
+
+#### Response body
+
+```
+{"message":"Your API works! (200)"}
+```
+
+#### Response headers
+
+```
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 35
+ETag: W/"23-KNmhzXgQhtEE5ovS3fuLixylNK0"
+Date: Thu, 07 Apr 2022 15:07:49 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+```
+
+#### API Endpoints for Logging In
+
+```
+They are logged into the console on the webpage as we used Firebase for it. 
+```
