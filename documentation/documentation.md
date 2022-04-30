@@ -23,5 +23,5 @@ If you are in the okab root directory, do:
 
 Then simply do npm start!
 ```
-- npm start
+npm start
 ```
