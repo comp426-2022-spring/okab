@@ -64,7 +64,7 @@ function Dashboard() {
         <div className="app__left">
 
           <div className="app__header">
-            <h1 className='app__header'>Okab COVID-19 Dashboard - Home</h1>
+            <h1 className='app__header'><br/>Okab COVID-19 Dashboard - Home<br/><br/></h1>
           </div>
 
           <br/>

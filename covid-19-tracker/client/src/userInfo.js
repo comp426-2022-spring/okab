@@ -28,13 +28,13 @@ function UserInfo() {
 
     return (
         <div>
-            <h1 className='app__header'>Okab COVID-19 Dashboard - User Info</h1>
+            <h1 className='app__header'><br/>Okab COVID-19 Dashboard - User Info<br/><br/></h1>
             <br/>
-            <h3 className='app__header'> User Signed In As: {user?.email}</h3>
+            <h3 className='app__header'><br/>User Signed In As: {user?.email}<br/><br/></h3>
 
             <div className="app__header">
                 {/* TODO: Delete user, update email, update pw */}
-                
+
 
             </div>
 

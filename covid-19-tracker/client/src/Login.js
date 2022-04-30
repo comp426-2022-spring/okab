@@ -80,7 +80,7 @@ function Login() {
 
     return (
         <div>
-            <h1 className='app__header'>Okab COVID-19 Dashboard - Login</h1>
+            <h1 className='app__header'><br/>Okab COVID-19 Dashboard - Login<br/><br/></h1>
             <br/>
 
             {/* User Sign Up and Log In Buttons */}
