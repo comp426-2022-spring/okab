@@ -104,6 +104,7 @@ function Dashboard() {
           </div>
           
           <br/>
+          <h5 className='app__header'><br/>User Info Page: Update user email/password, delete account, sign out<br/><br/></h5>
           <div className="buttons">
             <br/>
             <button
