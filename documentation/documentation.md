@@ -12,6 +12,9 @@ npm install firebase
 npm install --save react@16.13.0 react-dom@16.13.0
 npm install @material-ui/core
 npm install react-router-dom@6
+npm i react-chartjs-2
+npm i react-chartjs2 chart.js
+npm i numeral
 ```
 If you are already in the client subdirectory, just do the install comamands.
 
