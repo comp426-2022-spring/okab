@@ -1,7 +1,8 @@
 # Documentation
 
 ## Install Instructions
-You will need to install a few dependencies within client.
+### For frontend
+You will need to install a few dependencies within client.\
 Follow these commands if you are in the okab root directory.
 ```
   cd covid-19-tracker
@@ -14,14 +15,36 @@ Follow these commands if you are in the okab root directory.
 ```
 If you are already in the client subdirectory, just do the install comamands.
 
-## Run Instructions
-First you need to enter the client folder in the covid-19-tracker subdirectory.
-If you are in the okab root directory, do:
+### For backend
+You will need to install the following dependencies within server.\
+From okab root directory:
 ```
   cd covid-19-tracker
+  cd server
+  npm install better-sqlite3
+  npm install minimist
+```
+If you are already in the server subdirectory, just do the install comamands.
+
+## Run Instructions
+First you need to enter the covid-19-tracker subdirectory.
+```
+  cd covid-19-tracker
+```
+Once you are in the covid-19-tracker subdirectory, split the terminal (right click terminal and click Split Terminal).\
+In one half, enter the server subdirectory:
+```
   cd client
 ```
+Then do:\
+```
+  node server.js
+```
 
+In the other half, enter the client subdirectory:
+```
+  cd client
+```
 Then simply do npm start!
 ```
 npm start
