@@ -4,6 +4,8 @@ import InfoBox from './InfoBox';
 import Table from './Table';
 import React, { useEffect , useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {sortData} from "./util";
+import LineGraph from "./LineGraph";
 
 function Dashboard() {
 
@@ -15,6 +17,7 @@ function Dashboard() {
   
   useEffect(() => {
     fetch("https://disease.sh/v3/covid-19/all")
+    .then(response => response.json())
     .then(data => {
       setCountryInfo(data);
     });
@@ -35,7 +38,9 @@ function Dashboard() {
                 value: country.countryInfo.iso2
               }
             ));
-            // setTableData(data);
+
+            const sortedData = sortData(data);
+            setTableData(sortedData);
             setCountries(countries);
           });
       };
@@ -91,18 +96,34 @@ function Dashboard() {
             <InfoBox title="Coronavirus Cases" cases={countryInfo.todayCases}   total={countryInfo.cases} />
             <InfoBox title="Recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered} />
             <InfoBox title="Deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths} /> 
+
+
           </div>
           <Card className="app__right">
             <CardContent>
               <h3>Live Cases by Country</h3>
               {/* <Table countries={tableData}*/}
+              <Table countries={tableData} />
+
+              {/* copy out two lines below if we cant get graph to show */}
               <h3>Worldwide New Cases</h3>
+              <LineGraph />
+
+
             </CardContent>
           </Card>
           <div className="app__header">
             <br/>
           </div>
           
+
+
+
+
+
+
+
+
           <br/>
           <h5 className='app__header'><br/>User Info Page: Update user email/password, delete account, sign out<br/><br/></h5>
           <div className="buttons">

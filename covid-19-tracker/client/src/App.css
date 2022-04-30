@@ -51,7 +51,9 @@
 }
 
 .app__left {
-  flex: 0.9;
+  flex: flex;
+  justify-content: space-evenly;
+  padding: 20px;
 }
 
 @media (max_width: 990px) {
