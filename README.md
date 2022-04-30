@@ -12,7 +12,7 @@ Install and run instructions and also located in the documentation folder.
 - Image courtesy of [Wikisky](http://wikisky.org)
 
 ## Roles
-    Database Lead - Shawn Khandia 
+    User Database Lead - Shawn Khandia 
     Backend Lead - Laura Wu
     Backend Lead 2 - Rohan Shankar
     Frontend Lead - Haad Khan
