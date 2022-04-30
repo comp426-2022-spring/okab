@@ -107,7 +107,10 @@ function Dashboard() {
           <div className="buttons">
             <br/>
             <button
-              onClick={() => {navigate('/userinfo');}}
+              onClick={() => {
+                navigate('/userinfo');
+                console.log("Navigating to User Info page");
+              }}
             > Go to User Info Page
             </button>
             <br/>

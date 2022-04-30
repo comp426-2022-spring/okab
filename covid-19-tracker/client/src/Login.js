@@ -42,6 +42,7 @@ function Login() {
         signPW.value = "";
         signError.style.visibility = "hidden";
         navigate('/dashboard');
+        console.log("Navigating to Dashboard Home page");
         }
         catch (error) {
         console.log(error.message);
@@ -67,6 +68,7 @@ function Login() {
         logPW.value = "";
         logError.style.visibility = "hidden";
         navigate('/dashboard');
+        console.log("Navigating to Dashboard Home page");
         }
         catch (error) {
         console.log(error.message);

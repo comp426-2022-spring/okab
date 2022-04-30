@@ -3,7 +3,7 @@
 }
 
 .body {
-  background-color: lightgray ;
+  background: rgb(159, 205, 251);
 }
 
 
@@ -77,4 +77,24 @@
 .logError {
   color: red;
   visibility: hidden;
+}
+
+.upEmailMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: 'absolute';
+  color: green;
+  visibility: hidden;
+  background: rgb(159, 205, 251);
+}
+
+.upPWMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: 'absolute';
+  color: green;
+  visibility: hidden;
+  background: rgb(159, 205, 251);
 }
