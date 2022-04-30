@@ -5,7 +5,8 @@
     TODO
 
 ## Documentation
-    A further description of our API calls and endpoints can be found in the documentation folder
+A further description of our API calls and endpoints can be found in the documentation folder.
+Install and run instructions and also located in the documentation folder.
 
 ## Resources
 - Image courtesy of [Wikisky](http://wikisky.org)
