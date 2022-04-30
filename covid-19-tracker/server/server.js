@@ -62,10 +62,40 @@ const server = app.listen(HTTP_PORT, () => {
     console.log('App listening on port %PORT%'.replace('%PORT%',HTTP_PORT))
 });
 
+// Middleware
+app.use( (req, res, next) => {
+    let logdata = {
+        remoteaddr: req.ip,
+        remoteuser: req.user,
+        time: Date.now(),
+        method: req.method,
+        url: req.url,
+        protocol: req.protocol,
+        httpversion: req.httpVersion,
+        status: res.statusCode,
+        referer: req.headers['referer'],
+        useragent: req.headers['user-agent']
+    }
+    console.log(logdata)
+    const stmt = db.prepare('INSERT INTO accesslog (remoteaddr, remoteuser, time, method, url, protocol, httpversion, status, referrer, useragent) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
+    const info = stmt.run(logdata.remoteaddr, logdata.remoteuser, logdata.time, logdata.method, logdata.url, logdata.protocol, logdata.httpversion, logdata.status, logdata.referrer, logdata.useragent)
+    next();
+    })
+
 app.get('/app/', (req, res) => {
     res.json({"message":"Your API works! (200)"})
     res.status(200)
     });    
+
+if(args.debug === true) {
+    app.get('/app/log/access/', (req, res) => {
+        const stmt = db.prepare("SELECT * FROM accesslog").all()
+        res.status(200).json(stmt)
+    });
+    app.get('/app/error', (req, res) => {
+        throw new Error('Error test successful.')
+    });
+}   
 
 // default response for any other request
 app.use(function(req, res){
