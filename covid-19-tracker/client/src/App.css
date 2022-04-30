@@ -1,12 +1,17 @@
 * {
-  margin: 5px;
+  margin: 0;
 }
 
-.header {
+.body {
+  background-color: lightgray ;
+}
+
+
+.app__header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
   align-items: center;
-  position: 'absolute';
   background: rgb(159, 205, 251);
 
   /* Font style */
@@ -31,4 +36,26 @@
   position: 'absolute';
   background: rgb(159, 205, 251);
   clear: both;
+}
+
+.app__stats{
+  display: flex;
+  justify-content: space-between;
+}
+
+.app {
+  display: flex;
+  padding : 20px;
+  justify-content: space-evenly;
+}
+
+.app__left {
+  flex: 0.9;
+}
+
+@media (max_width: 990px) {
+  .app{
+    flex-direction: column;
+
+  }
 }

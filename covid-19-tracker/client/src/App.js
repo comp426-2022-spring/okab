@@ -1,6 +1,8 @@
-import { FormControl, MenuItem, Select } from '@material-ui/core';
+import { FormControl, MenuItem, Select, Card, CardContent } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import InfoBox from './InfoBox';
+import Table from './Table';
 
 import {
   createUserWithEmailAndPassword,
@@ -11,7 +13,17 @@ import {
 import { auth } from "./firebase";
 
 const App = () => {
-  const [state, setState] = useState([]); 
+  const [countries, setCountries] = useState([]);
+  const [country, setCountry] = useState('worldwide');
+  const[countryInfo, setCountryInfo] = useState({});
+
+  useEffect(() => {
+    fetch("https://disease.sh/v3/covid-19/all")
+    .then(data => {
+      setCountryInfo(data);
+    });
+  }, []);
+
   document.title = "Okab COVID-19 Dashboard";
   document.body.style = 'background: rgb(35, 35, 35);';
 
@@ -19,6 +31,7 @@ const App = () => {
   const [registerPassword, setRegisterPassword] = useState("");
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+  const[tableData, setTableData] = useState([]);
 
   const [user, setUser] = useState({});
 
@@ -27,20 +40,39 @@ const App = () => {
   });
 
   useEffect(() => {
-    const getStateData = async() => {
-      await fetch('https://disease.sh/v3/covid-19/states')
-      .then((response) => response.json())
-      .then((data) => {
-        const states = data.map((state) => (
-          {
-            name: state.state,
-          }
-        ));
-        setState(states)
-      });
+    const getCountriesData = async () => {
+      await fetch('https://disease.sh/v3/covid-19/countries')
+        .then((response) => response.json())
+        .then((data) => {
+          const countries = data.map((country) => (
+            {
+              name: country.country,
+              value: country.countryInfo.iso2
+            }
+          ));
+         // setTableData(data);
+          setCountries(countries);
+        });
     };
-    getStateData();
+    getCountriesData();
   }, [])
+
+  const onCountryChange = async (event) => {
+    const countryCode = event.target.value;
+    setCountry(countryCode);
+
+    const url = countryCode === `worldwide` ? `https://disease.sh/v3/covid-19/all` :
+      `https://disease.sh/v3/covid-19/countries/${countryCode}`;
+
+
+      await fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        setCountry(countryCode);
+        setCountryInfo(data);
+      })
+  }
+
 
   const register = async () => {
     var signEMAIL = document.getElementById("signEMAIL");
@@ -57,7 +89,7 @@ const App = () => {
       signEMAIL.value = "";
       signPW.value = "";
       signError.style.visibility = "hidden";
-    } 
+    }
     catch (error) {
       console.log(error.message);
       signEMAIL.value = "";
@@ -81,7 +113,7 @@ const App = () => {
       logEMAIL.value = "";
       logPW.value = "";
       logError.style.visibility = "hidden";
-    } 
+    }
     catch (error) {
       console.log(error.message);
       logEMAIL.value = "";
@@ -94,13 +126,61 @@ const App = () => {
     console.log("User signed out");
     await signOut(auth);
   };
-  
+
   return (
     <div className="app">
-      {/* Header */}
-      <div className="header">
-        <h1>Okab COVID-19 Dashboard</h1>
+      <div className="app__left">
+        <div className="app__header">
+          <h1>Okab COVID-19 Dashboard</h1>
+          <FormControl className='="app__dropdown'>
+            <Select variant="outlined" onChange={onCountryChange} value={country}>
+
+              <MenuItem value="worldwide">Worldwide</MenuItem>
+
+              {countries.map((country) => (
+                <MenuItem value={country.value}>{country.name}</MenuItem>
+              ))}
+
+            </Select>
+          </FormControl>
+        </div>
+
+        <div className="app__stats">
+          <InfoBox title="Coronavirus Cases" cases={countryInfo.todayCases}   total={countryInfo.cases} />
+          <InfoBox title="Recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered} />
+          <InfoBox title="Deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths} /> 
+        </div>
+        <Card className="app__right">
+          <CardContent>
+            <h3>Live Cases by Country</h3>
+           {/* <Table countries={tableData}*/}
+            <h3>Worldwide New Cases</h3>
+          </CardContent>
+      
+        </Card>
+        {/* Header */}
+
+
+
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
       {/* User Sign Up and Log In Buttons */}
@@ -122,7 +202,7 @@ const App = () => {
           <div>
             <h3> Sign Up </h3>
             <label id="signError" class="signError">Error: Invalid Email and/or Password</label>
-            <br/>
+            <br />
             <input
               placeholder="Email"
               id="signEMAIL"
@@ -140,17 +220,17 @@ const App = () => {
               }}
             />
 
-            <button 
-            onClick={register}
+            <button
+              onClick={register}
             > Create User</button>
           </div>
 
           {/* Log In */}
           <div>
-            <br/>
+            <br />
             <h3> Login </h3>
             <label id="logError" class="logError">Error: Invalid Email and/or Password</label>
-            <br/>
+            <br />
             <input
               placeholder="Email"
               id="logEMAIL"
@@ -168,18 +248,18 @@ const App = () => {
               }}
             />
 
-            <button 
-            onClick={login}
+            <button
+              onClick={login}
             > Login</button>
           </div>
 
           {/* Sign Out */}
-          <br/>
+          <br />
           <h4> User Signed In As: </h4>
           {user?.email}
 
-          <button 
-          onClick={logout}
+          <button
+            onClick={logout}
           > Sign Out </button>
 
         </section>
