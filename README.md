@@ -13,7 +13,7 @@
 ## Roles
     Database Lead - Shawn Khandia 
     Backend Lead - Laura Wu
-    Backend Lead2 - Rohan Shankar
+    Backend Lead 2 - Rohan Shankar
     Frontend Lead - Haad Khan
     Design Lead - Neha Patel 
 
