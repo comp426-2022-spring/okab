@@ -105,9 +105,6 @@ function Dashboard() {
               {/* <Table countries={tableData}*/}
               <Table countries={tableData} />
 
-              {/* copy out two lines below if we cant get graph to show */}
-              <h3>Worldwide New Cases</h3>
-              <LineGraph />
 
 
             </CardContent>
