@@ -38,8 +38,8 @@ app.post("/create", async (req, res) => {
   const data = req.body;
   try {
     const docRef = await addDoc(collection(db, "Users"), {
-        name: registerEmail,
-        password: registerPassword
+        name: data.name,
+        password: data.password
     });
     console.log("Document written with ID: ", docRef.id);
     const updateTimestamp = await updateDoc(docRef, {
