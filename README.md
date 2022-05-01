@@ -5,7 +5,7 @@
 Covid-19 Dashboard using realtime worldwide data. User login/authentication is handled by Firebase and stored via Firestore.
 
 ## Documentation
-A further description of our API calls and endpoints can be found in the documentation folder.
+A further description of our API calls and endpoints as well as run/install instructions can be found in the documentation folder.
 Install and run instructions and also located in the documentation folder.
 
 ## Roles
@@ -29,6 +29,9 @@ Install and run instructions and also located in the documentation folder.
     12. react-chartjs-2
     13. chart.js
     14. numeral
+
+## Development Schedule
+Information about the development schedule can be found in the plan folder.
 
 ## Resources
 - Image courtesy of [Wikisky](http://wikisky.org)
