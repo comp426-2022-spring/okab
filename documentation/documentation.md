@@ -70,21 +70,29 @@ curl http://localhost:5000/app/
 {"message":"Your API works! (200)"}
 ```
 
-#### Response headers
+### /create/ (POST)
+
+#### Request cURL
 
 ```
-HTTP/1.1 200 OK
-X-Powered-By: Express
-Content-Type: application/json; charset=utf-8
-Content-Length: 35
-ETag: W/"23-KNmhzXgQhtEE5ovS3fuLixylNK0"
-Date: Thu, 07 Apr 2022 15:07:49 GMT
-Connection: keep-alive
-Keep-Alive: timeout=5
+curl http://localhost:5000/create
 ```
 
-#### API Endpoints for Logging In
+#### Response body
 
 ```
-They are logged into the console on the webpage as we used Firebase for it. 
+{"User Added"}
+```
+### /create/ (POST)
+
+#### Request cURL
+
+```
+curl http://localhost:5000/delete
+```
+
+#### Response body
+
+```
+{"User Deleted"}
 ```
