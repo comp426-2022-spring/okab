@@ -9,6 +9,23 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "./firebase";
+import { getFirestore, collection, addDoc, updateDoc, serverTimestamp } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
+
+// Firebase config
+const firebaseConfig = {
+    apiKey: "AIzaSyCpspyJBziegUr-XlHfRRiEol1qKqLSzP0",
+    authDomain: "okab-6a8ac.firebaseapp.com",
+    projectId: "okab-6a8ac",
+    storageBucket: "okab-6a8ac.appspot.com",
+    messagingSenderId: "935513642014",
+    appId: "1:935513642014:web:457bcd1dd20bc60caaca0f",
+    measurementId: "G-8978S7Z8XF"
+  };
+
+// Initialize db
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
 function Login() {
 
@@ -31,24 +48,36 @@ function Login() {
         var signPW = document.getElementById("signPW");
         var signError = document.getElementById("signError");
         try {
-        const user = await createUserWithEmailAndPassword(
-            auth,
-            registerEmail,
-            registerPassword
-        );
-        console.log("User registered");
-        console.log(user);
-        signEMAIL.value = "";
-        signPW.value = "";
-        signError.style.visibility = "hidden";
-        navigate('/dashboard');
-        console.log("Navigating to Dashboard Home page");
+            const user = await createUserWithEmailAndPassword(
+                auth,
+                registerEmail,
+                registerPassword
+            );
+            try {
+                const docRef = await addDoc(collection(db, "Users"), {
+                    name: registerEmail,
+                    password: registerPassword
+                });
+                console.log("Document written with ID: ", docRef.id);
+                const updateTimestamp = await updateDoc(docRef, {
+                    time_created: serverTimestamp()
+                });
+            } catch (e) {
+                console.error("Error adding document: ", e);
+            }
+            console.log("User registered");
+            console.log(user);
+            signEMAIL.value = "";
+            signPW.value = "";
+            signError.style.visibility = "hidden";
+            navigate('/dashboard');
+            console.log("Navigating to Dashboard Home page");
         }
         catch (error) {
-        console.log(error.message);
-        signEMAIL.value = "";
-        signPW.value = "";
-        signError.style.visibility = "visible";
+            console.log(error.message);
+            signEMAIL.value = "";
+            signPW.value = "";
+            signError.style.visibility = "visible";
         }
     };
 
@@ -57,24 +86,24 @@ function Login() {
         var logPW = document.getElementById("logPW");
         var logError = document.getElementById("logError");
         try {
-        const user = await signInWithEmailAndPassword(
-            auth,
-            loginEmail,
-            loginPassword
-        );
-        console.log("User logged in");
-        console.log(user);
-        logEMAIL.value = "";
-        logPW.value = "";
-        logError.style.visibility = "hidden";
-        navigate('/dashboard');
-        console.log("Navigating to Dashboard Home page");
+            const user = await signInWithEmailAndPassword(
+                auth,
+                loginEmail,
+                loginPassword
+            );
+            console.log("User logged in");
+            console.log(user);
+            logEMAIL.value = "";
+            logPW.value = "";
+            logError.style.visibility = "hidden";
+            navigate('/dashboard');
+            console.log("Navigating to Dashboard Home page");
         }
         catch (error) {
-        console.log(error.message);
-        logEMAIL.value = "";
-        logPW.value = "";
-        logError.style.visibility = "visible";
+            console.log(error.message);
+            logEMAIL.value = "";
+            logPW.value = "";
+            logError.style.visibility = "visible";
         }
     };
 
