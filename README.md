@@ -13,8 +13,7 @@ Install and run instructions and also located in the documentation folder.
 
 ## Roles
     User Database Lead - Shawn Khandia 
-    Backend Lead - Laura Wu
-    Backend Lead 2 - Rohan Shankar
+    Backend Leads - Laura Wu, Rohan Shankar
     Frontend Lead - Haad Khan
     Design Lead - Neha Patel 
 
@@ -30,3 +29,6 @@ Install and run instructions and also located in the documentation folder.
     9. React-dom
     10. React-firebaseui
     11. react-router-dom
+    12. react-chartjs-2
+    13. chart.js
+    14. numeral
