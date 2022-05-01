@@ -2,14 +2,11 @@
 ![alt text](./okab.png)
 
 ## Overview
-A Covid-19 Dashboard using realtime worldwide data. User login/authentication is handled by Firebase.
+Covid-19 Dashboard using realtime worldwide data. User login/authentication is handled by Firebase and stored via Firestore.
 
 ## Documentation
 A further description of our API calls and endpoints can be found in the documentation folder.
 Install and run instructions and also located in the documentation folder.
-
-## Resources
-- Image courtesy of [Wikisky](http://wikisky.org)
 
 ## Roles
     User Database Lead - Shawn Khandia 
@@ -22,7 +19,7 @@ Install and run instructions and also located in the documentation folder.
     2. Better-sqlite3
     3. Express
     4. Firebase
-    5. Firebaseui
+    5. Firestore
     6. Minimist
     7. Morgan
     8. React
@@ -32,3 +29,9 @@ Install and run instructions and also located in the documentation folder.
     12. react-chartjs-2
     13. chart.js
     14. numeral
+
+## Resources
+- Image courtesy of [Wikisky](http://wikisky.org)
+- [Firebase User Management Documentation](https://firebase.google.com/docs/auth/web/manage-users)
+- [Firestore Documentation](https://firebase.google.com/docs/firestore/quickstart)
+- [Firebase Authentication Tutorial](https://www.youtube.com/watch?v=9bXhf_TELP4)
