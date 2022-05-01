@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors'
 import { User } from "./config.js";
-import { getFirestore, collection, addDoc, updateDoc, serverTimestamp } from "firebase/firestore";
+import { getFirestore, collection, addDoc, updateDoc, serverTimestamp, deleteDoc, doc } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 
 // Firebase config
@@ -61,8 +61,14 @@ app.post("/update", async (req, res) => {
 });
 
 app.post("/delete", async (req, res) => {
-  const id = req.body.id;
-  await User.doc(id).delete();
-  res.send({ msg: "Deleted" });
+  const data = req.body;
+  try {
+    const docRef = await deleteDoc(doc(db, "Users", data.name));
+} catch (e) {
+    console.error("Error removing document: ", e);
+}
+  console.log("User successfully deleted", data);
+  res.send({msg: "User Deleted"});
 });
+
 app.listen(5000, () => console.log("Up & RUnning *5000"));
