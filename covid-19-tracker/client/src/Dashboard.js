@@ -105,9 +105,6 @@ function Dashboard() {
               {/* <Table countries={tableData}*/}
               <Table countries={tableData} />
 
-              {/* copy out two lines below if we cant get graph to show */}
-              <h3>Worldwide New Cases</h3>
-              <LineGraph />
 
 
             </CardContent>
@@ -117,11 +114,29 @@ function Dashboard() {
           </div>
           
 
-
-
-
-
-
+          <br/>
+          <h5 className='app__header'><br/>Info On Covid-19 Testing and Vaccines from WHO<br/><br/></h5>
+          <div className="buttons">
+            <br/>
+            <button
+              onClick={() => {
+                window.location.href = "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/covid-19-vaccines";
+                console.log("Navigating to WHO Vaccine Page");
+              }}
+            > Learn more about Covid-19 Vaccines
+            </button>
+            <br/>
+            <br/>
+            <button
+              onClick={() => {
+                window.location.href = "https://www.who.int/westernpacific/emergencies/covid-19/information/covid-19-testing";
+                console.log("Navigating to WHO Testing Page");
+              }}
+            > Learn more about Covid-19 Testing
+            </button>
+            <br/>
+            <br/>
+          </div>
 
 
           <br/>
