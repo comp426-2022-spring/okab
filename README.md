@@ -8,6 +8,9 @@ Covid-19 Dashboard using realtime worldwide data. User login/authentication is h
 A further description of our API calls and endpoints as well as run/install instructions can be found in the documentation folder.
 Install and run instructions and also located in the documentation folder.
 
+## Demo
+To view a demo of the dashboard, you may click [here](https://youtu.be/VV91DF2Ej_M) or watch the demo file in the demo folder.
+
 ## Roles
     User Database Lead - Shawn Khandia 
     Backend Leads - Laura Wu, Rohan Shankar
